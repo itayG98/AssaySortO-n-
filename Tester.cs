@@ -11,7 +11,7 @@ namespace AssaySortO_n_
             int[] sorted1 = new int[] { 1,400,1000 };
             int[] sorted2 = new int[] { 0,4,5,6,7,8,9,15,20,67,400,100,200,456,1000};
             int[] sorted3 = new int[] { 1 };
-            int checkn = 400;
+            int checkn = 456;
             int[] singelDigitArr = new int[] { 1 };
             int[] sortedNotMissing = new int[] { 1, 2, 3, 4, 5, 6, 7 };
             int[] sortedMissing = new int[] { 1, 2, 3, 5 };
