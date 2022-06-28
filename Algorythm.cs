@@ -54,9 +54,9 @@ namespace AssaySortO_n_
                     a = c++;
                     --d;
                 }
-                else if (d <= a + 2 && arr[a] != num)
+                else
                 {
-                    return -1;
+                    break;
                 }
                 b = (d - a) / 3 + a;
                 c = (d - a) * 2 / 3 + a;
