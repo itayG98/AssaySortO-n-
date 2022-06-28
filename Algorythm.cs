@@ -21,47 +21,42 @@ namespace AssaySortO_n_
                 return -1;
             }
             int a = 0, b = arr.Length / 3, c = 2 * arr.Length / 3, d = arr.Length - 1;
-            while (a <= d)
+            while (a <= d + 2)
             {
-                Console.WriteLine("iteration O(log(n))");
-                if (d == a && a != num)
+                if (num >= arr[a] && num <= arr[b])
                 {
-                    return -1;
-                }
-                else if (arr[a] == num)
-                {
-                    return a;
-                }
-                else if (arr[b] == num)
-                {
-                    return b;
-                }
-                else if (arr[c] == num)
-                {
-                    return c;
-                }
-                else if (arr[d] == num)
-                {
-                    return d;
-                }
-
-                if (num > arr[a] && num < arr[b])
-                {
+                    if (arr[a] == num)
+                    {
+                        return a;
+                    }
+                    else if (arr[b] == num)
+                    {
+                        return b;
+                    }
                     a++;
                     d = --b;
-
                 }
-                else if (num > arr[b] && num < arr[c])
+                else if (num > arr[b] && num <= arr[c])
                 {
+                    if (arr[c] == num)
+                    {
+                        return c;
+                    }
                     a = b++;
                     d = --c;
-
                 }
-                else if (num > arr[c] && num < arr[d])
+                else if (num > arr[c] && num <= arr[d])
                 {
+                    if (arr[d] == num)
+                    {
+                        return d;
+                    }
                     a = c++;
                     --d;
-
+                }
+                else if (d <= a + 2 && arr[a] != num)
+                {
+                    return -1;
                 }
                 b = (d - a) / 3 + a;
                 c = (d - a) * 2 / 3 + a;
@@ -73,35 +68,57 @@ namespace AssaySortO_n_
         /*Finds the miising num in O(n)*/
 
         {
-            for (int i = 0; i < arr.Length; i++)
+            if (arr.Length > 1)
             {
-                Console.WriteLine("iteration O(n)");
-                if (arr[i] - 1 != i)
-                    return arr[i] - 1;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] - 1 != i)
+                        return arr[i] - 1;
+                }
             }
             return -1;
         }
         public static int MissingNumOlogn(int[] arr)
-        /*Finds the miising num in O(log(n))*/
+        /*Finds the mising num in O(log(n))*/
         {
             int left = 0, right = arr.Length - 1, middle = (right + left) / 2;
-            while (left <= right)
+            if (arr.Length > 1)
             {
-                Console.WriteLine("iteration O(Log(n))");
-                if (left == middle)
+                while (left <= right)
                 {
-                    if (arr[middle] + 1 == arr[right])
-                        break;
+                    if (left == middle)
+                    {
+                        if (arr[middle] + 1 == arr[right])
+                            break;
+                        else
+                            return right + 1;
+                    }
+                    if (arr[middle] - 1 == middle)
+                        left = middle;
                     else
-                        return right + 1;
+                        right = middle;
+                    middle = (left + right) / 2;
                 }
-                if (arr[middle] - 1 == middle)
-                    left = middle;
-                else
-                    right = middle;
-                middle = (left + right) / 2;
             }
             return -1;
+        }
+
+        public static int FindMax(int[] arr)
+        /*Assume sorted array moved array[i]===> array[(i+s)%Length]
+         Find the max in O(log(n) Tme complexity)*/
+        {
+            int left = 0, right = arr.Length - 1, middle = (left + right) / 2;
+            while (left <= right)
+            {
+                if (arr[left] > arr[middle])
+                    right = middle;
+                if (arr[left] < arr[middle])
+                    left = middle;
+                middle = (left + right) / 2;
+                if (left == right - 1)
+                    break;
+            }
+            return arr[left] > arr[right] ? arr[left] : arr[right];
         }
     }
 }
