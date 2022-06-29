@@ -16,10 +16,6 @@ namespace AssaySortO_n_
          Assume sorted int[] arr*/
         //Time complexity of log(n/3)) == log(n)*log(1/3) == log(n)
         {
-            if (num < arr[0] || num > arr[arr.Length - 1])
-            {
-                return -1;
-            }
             int a = 0, b = arr.Length / 3, c = 2 * arr.Length / 3, d = arr.Length - 1;
             while (a <= d + 2)
             {
