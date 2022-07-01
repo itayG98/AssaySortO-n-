@@ -33,7 +33,7 @@ namespace AssaySortO_n_
             Console.WriteLine($"{checkn} is in index: " + TernarySearch(sorted3, checkn));
             Console.WriteLine($"{1} is in index: " + TernarySearch(sorted3, 1) + "\n");
 
-/*            Console.WriteLine("\nSearching missin number in o(n) :\n--------------------");
+            Console.WriteLine("\nSearching missin number in o(n) :\n--------------------");
             //---------------------------------------------------------------
             DisplayArr(singelDigitArr);
             Console.WriteLine(MissingNumOn(singelDigitArr));
@@ -61,12 +61,12 @@ namespace AssaySortO_n_
             DisplayArr(moved3);
             Console.WriteLine(FindMax(moved3));
 
-            Console.ReadLine();*/
+            Console.ReadLine();
         }
 
         public static void DisplayArr(int[] arr)
         {
-            Console.WriteLine(String.Join(" ", arr));
+            Console.WriteLine("The array is :  "+String.Join(",", arr));
         }
     }
 }
