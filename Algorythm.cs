@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AssaySortO_n_
+﻿namespace AssaySortO_n_
 {
     /*Itay Getahun 1070*/
     //Data Struct&Algo assay
@@ -101,7 +95,7 @@ namespace AssaySortO_n_
 
         public static int FindMax(int[] arr)
         /*Assume sorted array moved array[i]===> array[(i+s)%Length]
-         Find the max in O(log(n) Tme complexity)*/
+         Find the max in O(log(n) Time complexity)*/
         {
             int left = 0, right = arr.Length - 1, middle = (left + right) / 2;
             while (left <= right)
